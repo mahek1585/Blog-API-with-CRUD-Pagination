@@ -3,6 +3,8 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 const authRoutes = require("./routes/auth.routes");
+const protectedRoutes = require("./routes/protected.routes");
+
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.use(cors());
 app.use(helmet());
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api", protectedRoutes);
 
 // test route
 app.get("/", (req, res) => {
