@@ -4,6 +4,8 @@ const helmet = require("helmet");
 
 const authRoutes = require("./routes/auth.routes");
 const protectedRoutes = require("./routes/protected.routes");
+const postRoutes = require("./routes/post.routes");
+
 
 
 const app = express();
@@ -16,6 +18,7 @@ app.use(helmet());
 
 app.use("/api/auth", authRoutes);
 app.use("/api", protectedRoutes);
+app.use("/api/posts", postRoutes);
 
 // test route
 app.get("/", (req, res) => {
