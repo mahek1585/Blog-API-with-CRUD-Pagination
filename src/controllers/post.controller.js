@@ -25,6 +25,22 @@ const createPost = async (req, res) => {
   }
 };
 
+// GET ALL POSTS
+const getAllPosts = async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "Posts fetched successfully",
+      posts,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch posts" });
+  }
+};
+
+
 module.exports = {
   createPost,
+  getAllPosts,
 };

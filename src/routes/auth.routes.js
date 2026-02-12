@@ -7,4 +7,9 @@ router.post("/signup", signup);
 
 router.post("/login", login);
 
+router.get("/check", (req, res) => {
+  res.send("AUTH ROUTE OK");
+});
+
+
 module.exports = router;
